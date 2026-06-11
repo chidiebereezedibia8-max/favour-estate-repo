@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Haven Homes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --bg-card-hover: #1c1c28;
+            --gold: #c8a45c;
+            --gold-light: #d4b36a;
+            --gold-dark: #a07830;
+            --text-primary: #f0ece4;
+            --text-secondary: #b8b4a8;
+            --text-muted: #7a766e;
+            --border-subtle: #22222d;
+            --border-card: #1e1e2a;
+            --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.5);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --transition-smooth: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a38;
+            border-radius: 10px;
+        }
+        /* ============ NAVBAR ============ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 40px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.7rem;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+            text-decoration: none;
+            z-index: 1001;
+        }
+        .nav-logo .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #0a0a0f;
+            font-weight: 900;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 10px 18px;
+            border-radius: 50px;
+            transition: all var(--transition-smooth);
+            letter-spacing: 0.3px;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .nav-links .btn-nav {
+            background: var(--gold);
+            color: #0a0a0f !important;
+            font-weight: 600;
+            padding: 11px 24px;
+        }
+        .nav-links .btn-nav:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(200, 164, 92, 0.35);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 8px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: var(--text-primary);
+            border-radius: 10px;
+            transition: all var(--transition-smooth);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ============ PAGE HERO ============ */
+        .page-hero {
+            padding: 140px 40px 80px;
+            text-align: center;
+            position: relative;
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(200, 164, 92, 0.07) 0%, transparent 60%),
+                var(--bg-primary);
+        }
+        .page-hero-badge {
+            display: inline-block;
+            background: rgba(200, 164, 92, 0.1);
+            border: 1px solid rgba(200, 164, 92, 0.3);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .page-hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .page-hero-title span {
+            color: var(--gold);
+        }
+        .page-hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ============ STORY SECTION ============ */
+        .section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .story-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            border: 1px solid var(--border-card);
+        }
+        .story-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .story-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+        .story-image-badge {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(200, 164, 92, 0.3);
+        }
+        .story-image-badge .years {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .story-image-badge .label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+        .story-content .section-tag {
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+        .story-content p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+        .story-stats-row {
+            display: flex;
+            gap: 30px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+        }
+        .story-stat h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .story-stat span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ============ VALUES ============ */
+        .values-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 100px 40px;
+        }
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .values-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 28px;
+        }
+        .value-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            text-align: center;
+            transition: all var(--transition-smooth);
+            cursor: default;
+        }
+        .value-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-6px);
+            border-color: rgba(200, 164, 92, 0.3);
+            box-shadow: var(--shadow-card);
+        }
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(200, 164, 92, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: var(--gold);
+            transition: all var(--transition-smooth);
+        }
+        .value-card:hover .value-icon {
+            background: var(--gold);
+            color: #0a0a0f;
+            transform: scale(1.08);
+        }
+        .value-card h3 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.2px;
+        }
+        .value-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ============ TEAM ============ */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 40px;
+        }
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-smooth);
+            cursor: pointer;
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(200, 164, 92, 0.3);
+            box-shadow: var(--shadow-card);
+        }
+        .team-img-wrapper {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        .team-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .team-card:hover .team-img-wrapper img {
+            transform: scale(1.05);
+        }
+        .team-img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        }
+        .team-info {
+            padding: 20px 22px;
+            text-align: center;
+        }
+        .team-info h3 {
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: -0.2px;
+        }
+        .team-role {
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 4px 0 10px;
+        }
+        .team-bio {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .team-social {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 14px;
+        }
+        .team-social a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: all var(--transition-smooth);
+        }
+        .team-social a:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* ============ TIMELINE ============ */
+        .timeline-section {
+            padding: 100px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border-subtle);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 30px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -30px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(200, 164, 92, 0.5);
+            z-index: 1;
+        }
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: -0.5px;
+        }
+        .timeline-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 4px 0 6px;
+        }
+        .timeline-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ============ CTA BANNER ============ */
+        .cta-banner {
+            margin: 60px 40px;
+            padding: 70px 50px;
+            border-radius: var(--radius-xl);
+            background: linear-gradient(135deg, #1a1a28, #111118, #0d0d18);
+            border: 1px solid var(--border-card);
+            text-align: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(200, 164, 92, 0.07) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .cta-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            position: relative;
+        }
+        .cta-banner p {
+            color: var(--text-muted);
+            margin: 14px 0 28px;
+            position: relative;
+        }
+        .btn-primary-lg {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: var(--gold);
+            color: #0a0a0f;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            transition: all var(--transition-bounce);
+            text-decoration: none;
+            position: relative;
+        }
+        .btn-primary-lg:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(200, 164, 92, 0.4);
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 60px 40px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.3fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-brand-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 14px;
+        }
+        .footer h4 {
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        .footer ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition-smooth);
+        }
+        .footer ul li a:hover {
+            color: var(--gold);
+        }
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 14px;
+        }
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: all var(--transition-smooth);
+        }
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 968px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .story-image-wrapper {
+                aspect-ratio: 16/10;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .timeline {
+                padding-left: 28px;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+                height: 70px;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(10, 10, 15, 0.97);
+                backdrop-filter: blur(30px);
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                gap: 4px;
+                transition: right var(--transition-smooth);
+                border-left: 1px solid var(--border-subtle);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links a {
+                display: block;
+                padding: 14px 18px;
+                font-size: 1rem;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .page-hero {
+                padding: 120px 20px 60px;
+            }
+            .section {
+                padding: 50px 20px;
+            }
+            .values-section {
+                padding: 60px 20px;
+            }
+            .cta-banner {
+                margin: 40px 20px;
+                padding: 40px 24px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .story-stats-row {
+                gap: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            .story-content h2 {
+                font-size: 1.8rem;
+            }
+            .timeline {
+                padding-left: 20px;
+            }
+            .timeline-item {
+                padding-left: 20px;
+            }
+            .timeline-dot {
+                left: -22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            <div class="logo-icon"><i class="fa-solid fa-building-columns"></i></div>
+            Haven<span style="color: var(--gold);">Homes</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Properties</a></li>
+            <li><a href="#">Featured</a></li>
+            <li><a href="#" class="active">About</a></li>
+            <li><a href="#" class="btn-nav">Contact Us</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div class="page-hero-badge">✦ Our Story</div>
+        <h1 class="page-hero-title">About <span>Haven Homes</span></h1>
+        <p class="page-hero-subtitle">
+            A legacy of excellence in luxury real estate, built on trust, integrity, and an unwavering passion for finding the perfect home.
+        </p>
+    </section>
+
+    <!-- ==================== STORY SECTION ==================== -->
+    <section class="section">
+        <div class="story-grid">
+            <div class="story-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=700&q=80"
+                alt="Luxury real estate office"
+                onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80'">
+                <div class="story-image-badge">
+                    <div class="years">15+</div>
+                    <div class="label">Years of Excellence</div>
+                </div>
+            </div>
+            <div class="story-content">
+                <span class="section-tag">Who We Are</span>
+                <h2>A Tradition of Distinction</h2>
+                <p>
+                    Founded in 2011 by visionary real estate entrepreneur <strong>Alexander Haven</strong>, Haven Homes began with a simple yet powerful belief: every client deserves a home that reflects their unique story.
+                </p>
+                <p>
+                    What started as a boutique firm in New York City has grown into an internationally recognized luxury real estate brand. We've facilitated over <strong>$4.2 billion</strong> in property transactions across 45+ cities worldwide, earning the trust of discerning clients from every corner of the globe.
+                </p>
+                <p>
+                    Our approach combines deep market intelligence with a concierge-level service model. We don't just sell properties—we curate lifestyles, matching extraordinary homes with extraordinary people.
+                </p>
+                <div class="story-stats-row">
+                    <div class="story-stat">
+                        <h4>2,500+</h4>
+                        <span>Properties Sold</span>
+                    </div>
+                    <div class="story-stat">
+                        <h4>$4.2B</h4>
+                        <span>in Transactions</span>
+                    </div>
+                    <div class="story-stat">
+                        <h4>98%</h4>
+                        <span>Client Satisfaction</span>
+                    </div>
+                    <div class="story-stat">
+                        <h4>45+</h4>
+                        <span>Cities Served</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== VALUES ==================== -->
+    <div class="values-section">
+        <div class="values-container">
+            <div class="values-header">
+                <span class="section-tag" style="color:var(--gold);font-size:0.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;">Our Principles</span>
+                <h2 style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;margin-top:8px;">The Values We Live By</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Uncompromising Quality</h3>
+                    <p>We represent only the finest properties and deliver service that exceeds the highest expectations.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Absolute Integrity</h3>
+                    <p>Transparency and honesty form the foundation of every relationship we build with our clients.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>Innovative Thinking</h3>
+                    <p>We leverage cutting-edge technology and market analytics to give our clients a decisive advantage.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Global Perspective</h3>
+                    <p>With a presence in 45+ cities, we bring a worldly understanding to every local market we serve.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
+                    <h3>Passion & Dedication</h3>
+                    <p>Our team is driven by a genuine love for architecture, design, and the art of matchmaking homes with people.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Discreet Service</h3>
+                    <p>We understand the importance of privacy and handle every transaction with the utmost confidentiality.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TEAM ==================== -->
+    <section class="section">
+        <div style="text-align:center;margin-bottom:50px;">
+            <span class="section-tag" style="color:var(--gold);font-size:0.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;">Meet Our Team</span>
+            <h2 style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;margin-top:8px;">The People Behind the Brand</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=80"
+                    alt="Alexander Haven"
+                    onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80'">
+                    <div class="team-img-overlay"></div>
+                </div>
+                <div class="team-info">
+                    <h3>Alexander Haven</h3>
+                    <div class="team-role">Founder & CEO</div>
+                    <p class="team-bio">With 20+ years in luxury real estate, Alexander has personally brokered over $1.5B in transactions.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&q=80"
+                    alt="Sophia Laurent"
+                    onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80'">
+                    <div class="team-img-overlay"></div>
+                </div>
+                <div class="team-info">
+                    <h3>Sophia Laurent</h3>
+                    <div class="team-role">Chief Operating Officer</div>
+                    <p class="team-bio">Sophia oversees global operations, ensuring every client experience is seamless and exceptional.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80"
+                    alt="Marcus Chen"
+                    onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=80'">
+                    <div class="team-img-overlay"></div>
+                </div>
+                <div class="team-info">
+                    <h3>Marcus Chen</h3>
+                    <div class="team-role">Head of Luxury Sales</div>
+                    <p class="team-bio">Marcus leads our elite sales team with an intimate knowledge of high-net-worth client needs.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80"
+                    alt="Isabella Rossi"
+                    onerror="this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=80'">
+                    <div class="team-img-overlay"></div>
+                </div>
+                <div class="team-info">
+                    <h3>Isabella Rossi</h3>
+                    <div class="team-role">Director of Client Relations</div>
+                    <p class="team-bio">Isabella ensures every client receives the white-glove service that defines the Haven Homes experience.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TIMELINE ==================== -->
+    <div class="timeline-section">
+        <div style="text-align:center;margin-bottom:50px;">
+            <span class="section-tag" style="color:var(--gold);font-size:0.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;">Our Journey</span>
+            <h2 style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;margin-top:8px;">Milestones & Achievements</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2011</div>
+                <div class="timeline-title">The Beginning</div>
+                <p class="timeline-desc">Haven Homes was founded in New York City with a team of just 5 passionate real estate professionals.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2014</div>
+                <div class="timeline-title">First $500M in Sales</div>
+                <p class="timeline-desc">Reached a major milestone of $500 million in cumulative property transactions across the tri-state area.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2017</div>
+                <div class="timeline-title">National Expansion</div>
+                <p class="timeline-desc">Opened offices in Los Angeles, Miami, and Chicago, expanding our footprint to both coasts.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2020</div>
+                <div class="timeline-title">Digital Innovation</div>
+                <p class="timeline-desc">Launched our virtual tour platform and AI-powered property matching, revolutionizing the buying experience.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2023</div>
+                <div class="timeline-title">Global Reach</div>
+                <p class="timeline-desc">Expanded internationally with offices in London, Dubai, and Hong Kong. Surpassed $3B in total transactions.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2026</div>
+                <div class="timeline-title">Industry Leadership</div>
+                <p class="timeline-desc">Recognized as the #1 luxury real estate firm by Global Property Awards. Now serving clients in 45+ cities.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CTA BANNER ==================== -->
+    <div class="cta-banner">
+        <h2>Let's Start a Conversation</h2>
+        <p>Whether you're buying, selling, or simply exploring, our team is ready to assist you.</p>
+        <a href="#" class="btn-primary-lg">
+            <i class="fa-solid fa-envelope"></i> Contact Our Team
+        </a>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <a href="#" class="nav-logo" style="margin-bottom:8px;display:flex;">
+                    <div class="logo-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    Haven<span style="color: var(--gold);">Homes</span>
+                </a>
+                <p class="footer-brand-desc">Redefining luxury real estate with an unwavering commitment to excellence. Your dream home is our mission.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Buy</a></li>
+                    <li><a href="#">Rent</a></li>
+                    <li><a href="#">Sell</a></li>
+                    <li><a href="#">Mortgage Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Agents</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-phone" style="margin-right:8px;color:var(--gold);"></i> +1 (555) 987-6543</a></li>
+                    <li><a href="#"><i class="fa-solid fa-envelope" style="margin-right:8px;color:var(--gold);"></i> hello@havenhomes.com</a></li>
+                    <li><a href="#"><i class="fa-solid fa-location-dot" style="margin-right:8px;color:var(--gold);"></i> 450 Park Ave, NYC</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Haven Homes. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

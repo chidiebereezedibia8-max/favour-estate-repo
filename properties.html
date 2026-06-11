@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties | Haven Homes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="properties.css">
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            <div class="logo-icon"><i class="fa-solid fa-building-columns"></i></div>
+            Haven<span style="color: var(--gold);">Homes</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#" class="active">Properties</a></li>
+            <li><a href="#">Featured</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" class="btn-nav">Contact Us</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div class="page-hero-badge">✦ Browse Our Portfolio</div>
+        <h1 class="page-hero-title">Explore <span>Properties</span></h1>
+        <p class="page-hero-subtitle">Discover your perfect home from our curated collection of exceptional residences.</p>
+    </section>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <div class="main-content">
+        <!-- Filter Bar -->
+        <div class="filter-bar" id="filterBar">
+            <div class="filter-group">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" placeholder="Location..." id="filterLocation">
+            </div>
+            <div class="filter-group">
+                <i class="fa-solid fa-house"></i>
+                <select id="filterType">
+                    <option value="">All Types</option>
+                    <option value="house">House</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="villa">Villa</option>
+                    <option value="penthouse">Penthouse</option>
+                    <option value="condo">Condo</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <select id="filterPrice">
+                    <option value="">Any Price</option>
+                    <option value="0-500000">Up to $500K</option>
+                    <option value="500000-1000000">$500K – $1M</option>
+                    <option value="1000000-3000000">$1M – $3M</option>
+                    <option value="3000000-10000000">$3M+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <i class="fa-solid fa-bed"></i>
+                <select id="filterBeds">
+                    <option value="">Beds: Any</option>
+                    <option value="1">1+ Bed</option>
+                    <option value="2">2+ Beds</option>
+                    <option value="3">3+ Beds</option>
+                    <option value="4">4+ Beds</option>
+                    <option value="5">5+ Beds</option>
+                </select>
+            </div>
+            <button class="btn-filter-search" onclick="applyFilters()">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
+            <button class="btn-reset" onclick="resetFilters()">
+                <i class="fa-solid fa-rotate"></i> Reset
+            </button>
+            <div class="view-toggle" id="viewToggle">
+                <button class="active" data-view="grid" title="Grid View"><i class="fa-solid fa-grid-2"></i></button>
+                <button data-view="list" title="List View"><i class="fa-solid fa-list"></i></button>
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-count" id="resultsCount">
+            Showing <strong>12</strong> properties
+        </div>
+
+        <!-- Properties Grid -->
+        <div class="properties-grid" id="propertiesGrid">
+            <!-- Injected via JS -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <!-- Injected via JS -->
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <a href="#" class="nav-logo" style="margin-bottom:8px;display:flex;">
+                    <div class="logo-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    Haven<span style="color: var(--gold);">Homes</span>
+                </a>
+                <p class="footer-brand-desc">Redefining luxury real estate with an unwavering commitment to excellence.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Buy</a></li>
+                    <li><a href="#">Rent</a></li>
+                    <li><a href="#">Sell</a></li>
+                    <li><a href="#">Mortgage Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Agents</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-phone" style="margin-right:8px;color:var(--gold);"></i> +1 (555) 987-6543</a></li>
+                    <li><a href="#"><i class="fa-solid fa-envelope" style="margin-right:8px;color:var(--gold);"></i> hello@havenhomes.com</a></li>
+                    <li><a href="#"><i class="fa-solid fa-location-dot" style="margin-right:8px;color:var(--gold);"></i> 450 Park Ave, NYC</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Haven Homes. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============ PROPERTY DATA (EXPANDED) ============
+        const allProperties = [
+            { id: 1, type: 'villa', name: 'Skyline Villa', address: 'Malibu, CA', price: 3200000, beds: 5, baths: 4,
+                sqft: 4200, img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80',
+                badge: 'For Sale', desc: 'Stunning ocean-view villa with infinity pool and private beach access.' },
+            { id: 2, type: 'penthouse', name: 'The Metropolitan Penthouse', address: 'Manhattan, NY', price: 5800000,
+                beds: 4, baths: 3.5, sqft: 3800,
+                img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80', badge: 'For Sale',
+                desc: 'Panoramic skyline views from this triplex penthouse in the heart of Midtown.' },
+            { id: 3, type: 'house', name: 'Oakwood Residence', address: 'Austin, TX', price: 1250000, beds: 4,
+                baths: 3, sqft: 2800,
+                img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80', badge: 'For Sale',
+                desc: 'Modern craftsman home nestled in the desirable Oakwood neighborhood.' },
+            { id: 4, type: 'apartment', name: 'The Glass Tower Unit 42', address: 'Chicago, IL', price: 875000,
+                beds: 2, baths: 2, sqft: 1600,
+                img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80', badge: 'For Rent',
+                desc: 'Sleek downtown apartment with floor-to-ceiling windows and premium finishes.' },
+            { id: 5, type: 'condo', name: 'Seaside Condo', address: 'Miami, FL', price: 650000, beds: 3, baths: 2,
+                sqft: 1800, img: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80',
+                badge: 'For Sale', desc: 'Bright and airy condo steps from the beach with resort-style amenities.' },
+            { id: 6, type: 'villa', name: 'Tuscan Hills Villa', address: 'Napa Valley, CA', price: 4100000, beds: 6,
+                baths: 5.5, sqft: 5500,
+                img: 'https://images.unsplash.com/photo-1600566753086-00f18f6b0050?w=600&q=80', badge: 'Exclusive',
+                desc: 'A breathtaking estate surrounded by rolling vineyards and olive groves.' },
+            { id: 7, type: 'penthouse', name: 'Aurora Heights Penthouse', address: 'San Francisco, CA',
+                price: 7200000, beds: 5, baths: 4, sqft: 5000,
+                img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80', badge: 'For Sale',
+                desc: 'Triple-level penthouse with wraparound terrace and Golden Gate Bridge views.' },
+            { id: 8, type: 'apartment', name: 'The Chelsea Modern', address: 'London, UK', price: 2200000, beds: 3,
+                baths: 2, sqft: 2100,
+                img: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80', badge: 'For Rent',
+                desc: 'Sophisticated urban living in one of London\'s most coveted neighborhoods.' },
+            { id: 9, type: 'house', name: 'Cedar Ridge Farmhouse', address: 'Portland, OR', price: 980000, beds: 4,
+                baths: 2.5, sqft: 2400,
+                img: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600&q=80', badge: 'For Sale',
+                desc: 'Charming modern farmhouse on 2 acres with sustainable design features.' },
+            { id: 10, type: 'villa', name: 'Azure Coast Villa', address: 'Santorini, Greece', price: 2800000,
+                beds: 4, baths: 3, sqft: 3500,
+                img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80', badge: 'For Sale',
+                desc: 'Iconic white-washed villa with caldera views and private plunge pool.' },
+            { id: 11, type: 'condo', name: 'Marina Bay Suites', address: 'Singapore', price: 1900000, beds: 3,
+                baths: 2.5, sqft: 2200,
+                img: 'https://images.unsplash.com/photo-1600566753086-00f18f6b0050?w=600&q=80', badge: 'For Sale',
+                desc: 'Waterfront luxury living with panoramic marina and skyline views.' },
+            { id: 12, type: 'house', name: 'The Hamptons Retreat', address: 'East Hampton, NY', price: 8500000,
+                beds: 7, baths: 6, sqft: 6800,
+                img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80', badge: 'Exclusive',
+                desc: 'A sprawling estate with private tennis court, pool house, and lush gardens.' },
+        ];
+
+        const favorites = new Set();
+        const ITEMS_PER_PAGE = 6;
+        let currentPage = 1;
+        let currentView = 'grid';
+        let filteredProperties = [...allProperties];
+
+        // ============ RENDER ============
+        function renderProperties() {
+            const grid = document.getElementById('propertiesGrid');
+            const start = (currentPage - 1) * ITEMS_PER_PAGE;
+            const paginated = filteredProperties.slice(start, start + ITEMS_PER_PAGE);
+
+            grid.className = 'properties-grid';
+            if (currentView === 'list') {
+                grid.classList.add('list-view');
+            }
+
+            grid.innerHTML = paginated.map(p => {
+                const isLiked = favorites.has(p.id);
+                const formattedPrice = p.price >= 1000000 ?
+                    `$${(p.price / 1000000).toFixed(1)}M` :
+                    `$${(p.price / 1000).toFixed(0)}K`;
+                const badgeClass = p.badge === 'For Rent' ? 'for-rent' : '';
+
+                return `
+                    <div class="property-card" data-id="${p.id}">
+                        <div class="property-image-wrapper">
+                            <img class="property-image" src="${p.img}" alt="${p.name}"
+                                 onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80'">
+                            <div class="property-badge ${badgeClass}">${p.badge}</div>
+                            <button class="property-favorite ${isLiked ? 'liked' : ''}"
+                                    onclick="toggleFavorite(event, ${p.id})">
+                                <i class="fa-${isLiked ? 'solid' : 'regular'} fa-heart"></i>
+                            </button>
+                            <div class="property-image-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-price">${formattedPrice} <span>${p.badge === 'For Rent' ? '/mo' : ''}</span></div>
+                            <h3 class="property-name">${p.name}</h3>
+                            <div class="property-address"><i class="fa-solid fa-location-dot"></i> ${p.address}</div>
+                            <p class="property-desc">${p.desc}</p>
+                            <div class="property-features">
+                                <div class="property-feature"><i class="fa-solid fa-bed"></i> ${p.beds} Beds</div>
+                                <div class="property-feature"><i class="fa-solid fa-bath"></i> ${p.baths} Baths</div>
+                                <div class="property-feature"><i class="fa-solid fa-ruler-combined"></i> ${p.sqft.toLocaleString()} sqft</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Click listeners
+            grid.querySelectorAll('.property-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.closest('.property-favorite')) {
+                        const id = this.dataset.id;
+                        const prop = allProperties.find(p => p.id == id);
+                        if (prop) alert(
+                            `🏠 ${prop.name}\n📍 ${prop.address}\n💰 $${prop.price.toLocaleString()}\n\n${prop.desc}\n\n✨ Click to schedule a viewing!`
+                            );
+                    }
+                });
+            });
+
+            updateResultsCount();
+            renderPagination();
+        }
+
+        function updateResultsCount() {
+            document.getElementById('resultsCount').innerHTML =
+                `Showing <strong>${filteredProperties.length}</strong> propert${filteredProperties.length !== 1 ? 'ies' : 'y'}`;
+        }
+
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredProperties.length / ITEMS_PER_PAGE);
+            const pagDiv = document.getElementById('pagination');
+            if (totalPages <= 1) {
+                pagDiv.innerHTML = '';
+                return;
+            }
+            let html = `<button ${currentPage === 1 ? 'disabled' : ''} onclick="goToPage(${currentPage - 1})"><i class="fa-solid fa-chevron-left"></i></button>`;
+            for (let i = 1; i <= totalPages; i++) {
+                html +=
+                    `<button class="${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+            }
+            html +=
+                `<button ${currentPage === totalPages ? 'disabled' : ''} onclick="goToPage(${currentPage + 1})"><i class="fa-solid fa-chevron-right"></i></button>`;
+            pagDiv.innerHTML = html;
+        }
+
+        function goToPage(page) {
+            const totalPages = Math.ceil(filteredProperties.length / ITEMS_PER_PAGE);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderProperties();
+            document.getElementById('propertiesGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function toggleFavorite(event, propertyId) {
+            event.stopPropagation();
+            if (favorites.has(propertyId)) {
+                favorites.delete(propertyId);
+            } else {
+                favorites.add(propertyId);
+            }
+            renderProperties();
+        }
+
+        // ============ FILTERS ============
+        function applyFilters() {
+            const location = document.getElementById('filterLocation').value.toLowerCase().trim();
+            const type = document.getElementById('filterType').value;
+            const priceRange = document.getElementById('filterPrice').value;
+            const beds = document.getElementById('filterBeds').value;
+
+            filteredProperties = allProperties.filter(p => {
+                if (location && !p.address.toLowerCase().includes(location) && !p.name.toLowerCase()
+                    .includes(location)) return false;
+                if (type && p.type !== type) return false;
+                if (beds && p.beds < parseInt(beds)) return false;
+                if (priceRange) {
+                    const [min, max] = priceRange.split('-').map(Number);
+                    if (p.price < min) return false;
+                    if (max && p.price > max) return false;
+                }
+                return true;
+            });
+
+            currentPage = 1;
+            renderProperties();
+        }
+
+        function resetFilters() {
+            document.getElementById('filterLocation').value = '';
+            document.getElementById('filterType').value = '';
+            document.getElementById('filterPrice').value = '';
+            document.getElementById('filterBeds').value = '';
+            filteredProperties = [...allProperties];
+            currentPage = 1;
+            renderProperties();
+        }
+
+        // ============ VIEW TOGGLE ============
+        document.getElementById('viewToggle').addEventListener('click', function(e) {
+            const btn = e.target.closest('button');
+            if (!btn) return;
+            document.querySelectorAll('#viewToggle button').forEach(b => b.classList.remove(
+            'active'));
+            btn.classList.add('active');
+            currentView = btn.dataset.view;
+            renderProperties();
+        });
+
+        // ============ HAMBURGER ============
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ============ INITIAL RENDER ============
+        renderProperties();
+    </script>
+</body>
+</html>

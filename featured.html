@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Properties | Haven Homes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="feature.css">
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            <div class="logo-icon"><i class="fa-solid fa-building-columns"></i></div>
+            Haven<span style="color: var(--gold);">Homes</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Properties</a></li>
+            <li><a href="#" class="active">Featured</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" class="btn-nav">Contact Us</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div class="page-hero-badge">✦ Curated Excellence</div>
+        <h1 class="page-hero-title">Featured <span>Properties</span></h1>
+        <p class="page-hero-subtitle">
+            A handpicked selection of our most exceptional residences—each representing the pinnacle of luxury living.
+        </p>
+    </section>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <div class="main-content">
+
+        <!-- ===== SPOTLIGHT: Property of the Month ===== -->
+        <div class="spotlight-card" id="spotlightProperty">
+            <div class="spotlight-image-wrapper">
+                <img id="spotlightImg"
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
+                alt="Featured Property"
+                onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80'">
+                <div class="spotlight-badge-top">Property of the Month</div>
+            </div>
+            <div class="spotlight-info">
+                <span class="spotlight-tag">✦ Spotlight</span>
+                <div class="spotlight-price" id="spotlightPrice">$8,500,000</div>
+                <h2 class="spotlight-name" id="spotlightName">The Hamptons Retreat</h2>
+                <div class="spotlight-address"><i class="fa-solid fa-location-dot"></i> <span id="spotlightAddress">East Hampton, NY</span></div>
+                <p class="spotlight-desc" id="spotlightDesc">
+                    A sprawling 7-bedroom estate with private tennis court, heated pool, guest house, and meticulously landscaped gardens across 4.5 acres of prime Hamptons real estate.
+                </p>
+                <div class="spotlight-features">
+                    <div class="spotlight-feature"><i class="fa-solid fa-bed"></i> <span id="spotlightBeds">7</span> Beds</div>
+                    <div class="spotlight-feature"><i class="fa-solid fa-bath"></i> <span id="spotlightBaths">6</span> Baths</div>
+                    <div class="spotlight-feature"><i class="fa-solid fa-ruler-combined"></i> <span id="spotlightSqft">6,800</span> sqft</div>
+                    <div class="spotlight-feature"><i class="fa-solid fa-car"></i> 4 Garage</div>
+                </div>
+                <a href="#" class="btn-outline-gold" onclick="scheduleTour('spotlight')">
+                    <i class="fa-solid fa-calendar-check"></i> Schedule Private Tour
+                </a>
+            </div>
+        </div>
+
+        <!-- ===== MORE FEATURED ===== -->
+        <div class="section-header">
+            <span class="section-tag">Editor's Picks</span>
+            <h2 class="section-title">More Featured Residences</h2>
+        </div>
+        <div class="featured-grid" id="featuredGrid">
+            <!-- Injected via JS -->
+        </div>
+
+        <!-- ===== VIRTUAL TOUR ===== -->
+        <div class="virtual-tour-section">
+            <div class="virtual-tour-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+            <h2>Experience It in 360°</h2>
+            <p>Step inside our featured properties from the comfort of your home with immersive virtual tours.</p>
+            <a href="#" class="btn-primary-lg" onclick="startVirtualTour()">
+                <i class="fa-solid fa-play"></i> Launch Virtual Tour
+            </a>
+        </div>
+
+        <!-- ===== AGENT CTA ===== -->
+        <div class="agent-cta">
+            <div class="agent-cta-image">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80"
+                alt="Luxury Agent"
+                onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80'">
+            </div>
+            <div class="agent-cta-info">
+                <span class="tag">Personal Consultation</span>
+                <h3>Work With a Specialist</h3>
+                <p>Our featured property specialists provide white-glove service, from private showings to negotiation and closing. Let us guide you to your dream home.</p>
+                <a href="#" class="btn-outline-gold">
+                    <i class="fa-solid fa-phone"></i> Speak With an Agent
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <a href="#" class="nav-logo" style="margin-bottom:8px;display:flex;">
+                    <div class="logo-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    Haven<span style="color: var(--gold);">Homes</span>
+                </a>
+                <p class="footer-brand-desc">Redefining luxury real estate with an unwavering commitment to excellence. Your dream home is our mission.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Buy</a></li>
+                    <li><a href="#">Rent</a></li>
+                    <li><a href="#">Sell</a></li>
+                    <li><a href="#">Mortgage Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Agents</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-phone" style="margin-right:8px;color:var(--gold);"></i> +1 (555) 987-6543</a></li>
+                    <li><a href="#"><i class="fa-solid fa-envelope" style="margin-right:8px;color:var(--gold);"></i> hello@havenhomes.com</a></li>
+                    <li><a href="#"><i class="fa-solid fa-location-dot" style="margin-right:8px;color:var(--gold);"></i> 450 Park Ave, NYC</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Haven Homes. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============ FEATURED PROPERTIES DATA ============
+        const featuredProperties = [
+            { id: 1, name: 'The Beverly Hills Estate', address: 'Beverly Hills, CA', price: 4850000, beds: 7,
+                baths: 9, sqft: 8200,
+                img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
+                badge: 'Exclusive',
+                desc: 'Contemporary masterpiece with infinity pool, home theater, and panoramic canyon views.' },
+            { id: 2, name: 'Aurora Heights Penthouse', address: 'San Francisco, CA', price: 7200000, beds: 5,
+                baths: 4, sqft: 5000,
+                img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80',
+                badge: 'Featured',
+                desc: 'Triple-level penthouse with wraparound terrace and iconic Golden Gate Bridge vistas.' },
+            { id: 3, name: 'Tuscan Hills Villa', address: 'Napa Valley, CA', price: 4100000, beds: 6, baths: 5.5,
+                sqft: 5500, img: 'https://images.unsplash.com/photo-1600566753086-00f18f6b0050?w=600&q=80',
+                badge: 'Just Listed',
+                desc: 'Breathtaking estate surrounded by vineyards with private wine cellar and olive groves.' },
+            { id: 4, name: 'Skyline Villa', address: 'Malibu, CA', price: 3200000, beds: 5, baths: 4, sqft: 4200,
+                img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80',
+                badge: 'Oceanfront',
+                desc: 'Stunning ocean-view villa with private beach access and resort-style outdoor living.' },
+            { id: 5, name: 'The Metropolitan Penthouse', address: 'Manhattan, NY', price: 5800000, beds: 4,
+                baths: 3.5, sqft: 3800,
+                img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80',
+            badge: 'Featured', desc: 'Panoramic skyline views from this triplex penthouse in the heart of Midtown.' },
+            { id: 6, name: 'Azure Coast Villa', address: 'Santorini, Greece', price: 2800000, beds: 4, baths: 3,
+                sqft: 3500,
+                img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80',
+                badge: 'International',
+                desc: 'Iconic white-washed villa perched on the caldera with breathtaking Aegean Sea views.' },
+        ];
+
+        const spotlightData = featuredProperties[0];
+
+        // ============ RENDER FEATURED GRID ============
+        function renderFeaturedGrid() {
+            const grid = document.getElementById('featuredGrid');
+            grid.innerHTML = featuredProperties.map(p => {
+                const formattedPrice = p.price >= 1000000 ?
+                    `$${(p.price / 1000000).toFixed(1)}M` :
+                    `$${(p.price / 1000).toFixed(0)}K`;
+                return `
+                    <div class="featured-card" data-id="${p.id}" onclick="setSpotlight(${p.id})">
+                        <div class="featured-card-image">
+                            <img src="${p.img}" alt="${p.name}"
+                                 onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80'">
+                            <div class="featured-card-badge">${p.badge}</div>
+                            <div class="featured-card-overlay"></div>
+                        </div>
+                        <div class="featured-card-info">
+                            <div class="featured-card-price">${formattedPrice}</div>
+                            <h3 class="featured-card-name">${p.name}</h3>
+                            <div class="featured-card-address"><i class="fa-solid fa-location-dot"></i> ${p.address}</div>
+                            <div class="featured-card-features">
+                                <div class="featured-card-feature"><i class="fa-solid fa-bed"></i> ${p.beds} Beds</div>
+                                <div class="featured-card-feature"><i class="fa-solid fa-bath"></i> ${p.baths} Baths</div>
+                                <div class="featured-card-feature"><i class="fa-solid fa-ruler-combined"></i> ${p.sqft.toLocaleString()} sqft</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ============ SET SPOTLIGHT ============
+        function setSpotlight(propertyId) {
+            const prop = featuredProperties.find(p => p.id === propertyId);
+            if (!prop) return;
+
+            document.getElementById('spotlightImg').src = prop.img;
+            document.getElementById('spotlightPrice').textContent = prop.price >= 1000000 ?
+                `$${(prop.price / 1000000).toFixed(1)}M` : `$${prop.price.toLocaleString()}`;
+            document.getElementById('spotlightName').textContent = prop.name;
+            document.getElementById('spotlightAddress').textContent = prop.address;
+            document.getElementById('spotlightDesc').textContent = prop.desc;
+            document.getElementById('spotlightBeds').textContent = prop.beds;
+            document.getElementById('spotlightBaths').textContent = prop.baths;
+            document.getElementById('spotlightSqft').textContent = prop.sqft.toLocaleString();
+
+            // Scroll to spotlight
+            document.getElementById('spotlightProperty').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Pulse animation
+            const spotlight = document.getElementById('spotlightProperty');
+            spotlight.style.boxShadow = '0 0 60px rgba(200,164,92,0.4)';
+            setTimeout(() => {
+                spotlight.style.boxShadow = '';
+                spotlight.style.transition = 'box-shadow 0.8s ease-out';
+            }, 600);
+        }
+
+        // ============ SCHEDULE TOUR ============
+        function scheduleTour(type) {
+            if (type === 'spotlight') {
+                const name = document.getElementById('spotlightName').textContent;
+                alert(
+                    `📅 Private Tour Request\n\n🏠 ${name}\n\n✨ Our concierge team will contact you within 24 hours to arrange your private viewing.\n\n📞 Or call us directly: +1 (555) 987-6543`
+                    );
+            }
+        }
+
+        function startVirtualTour() {
+            alert(
+                '🎥 Virtual Tour Launching...\n\n✨ Experience our featured properties in immersive 360°.\n\n📍 The Hamptons Retreat\n📍 Beverly Hills Estate\n📍 Aurora Heights Penthouse\n\nSelect a property to begin your virtual walkthrough!'
+                );
+        }
+
+        // ============ HAMBURGER ============
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ============ INITIAL RENDER ============
+        renderFeaturedGrid();
+
+        console.log('%c🏠 Haven Homes %cFeatured Page %cReady',
+            'font-size:1.3rem;font-weight:bold;color:#c8a45c;',
+            'color:#b8b4a8;',
+            'color:#7a766e;');
+    </script>
+</body>
+</html>
